@@ -48,7 +48,7 @@ def emptyCheck(board):
         for j in range(9): # 9 = no. of columns
             if board[i][j] == 0:
                 return (i, j) # (row, col)-index of first zero found in sudoku
-    return None # if no 0s present in sudoku
+    return False # if no 0s present in sudoku
 board = [
 [8, 9, 4, 0, 0, 0, 0, 5, 1],
 [0, 0, 7, 0, 0, 3, 0, 6, 9],
