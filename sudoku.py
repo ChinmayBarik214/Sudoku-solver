@@ -15,7 +15,7 @@ def solve(board): # if board is solved returns True otherwise returns False
             if solve(board): # Run solve function again with a new board created by inserting a number to the previous board
                 return True # when a number has been inserted successfully it returns True
             else:
-                board[row][col] = 0 # when a number cannot be inserted, reset previous number to 0, continue for loop iteration until a different number is inserted that is valid
+                board[row][col] = 0 # when a number cannot be inserted, reset previous number to 0, continue for loop iteration for previous recursive call of solve() until a different number is inserted that is valid
     # NO VALID MOVES FOUND in position of first zero, then statement below is run
     return False # into line 15 | if solve(board): recives False, else block above is run
 def isValid(board, num, pos): # if move is valid returns True otherwise returns False
@@ -50,15 +50,15 @@ def emptyCheck(board):
                 return (i, j) # (row, col)-index of first zero found in sudoku
     return False # if no 0s present in sudoku
 board = [
-[0, 8, 0, 0, 0, 6, 2, 0, 0],
-[5, 0, 0, 8, 7, 0, 3, 0, 0],
-[0, 0, 0, 0, 0, 4, 0, 7, 0],
-[0, 4, 0, 2, 1, 0, 0, 3, 0], 
-[0, 0, 9, 0, 0, 0, 5, 0, 0],
-[0, 0, 0, 0, 0, 7, 0, 0, 0],  
-[0, 0, 0, 6, 0, 0, 0, 0, 0],
-[0, 2, 0, 3, 8, 0, 0, 1, 0],
-[4, 0, 0, 0, 0, 0, 0, 0, 2] 
+[0, 6, 9, 0, 0, 0, 0, 7, 8],
+[5, 0, 0, 0, 4, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 7, 6, 0, 5],
+[9, 4, 2, 7, 0, 3, 1, 0, 6],
+[7, 0, 6, 5, 0, 2, 8, 4, 3],
+[0, 0, 0, 1, 0, 4, 0, 9, 0],
+[0, 0, 0, 0, 0, 6, 0, 8, 0],
+[6, 0, 1, 0, 3, 9, 0, 0, 0],
+[0, 5, 4, 0, 7, 0, 3, 0, 0]
 ]
 # Uncomment below code to input sudoku from user:
 #
