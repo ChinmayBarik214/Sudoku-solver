@@ -11,12 +11,14 @@ def solve(board):
         row, col = found0 # (row, col)-index of first zero found in sudoku
     for i in range(1, 10):
         if isValid(board, i, (row, col)):
-            board[row][col] = i # Try 1/2/…/9 and replace first zero found on board with the first number which is valid there
-            if solve(board):
-                return True
-            board[row][col] = 0 # Reset the last number we added to 0 and try a different number there
-    return False
-def isValid(board, num, pos):
+            board[row][col] = i # Try 1/2/…/9 and replace first zero found on board with the first number found from 1-9 which is valid in the zero’s position
+            if solve(board): # Run solve function again with a new board created by inserting a number to the previous board
+                return # exits the function when solve(board) returns True, i.e., the sudoku is solved (base case reached)
+            else:
+                board[row][col] = 0 # replace the first zero with zero?
+    # NO VALID MOVES FOUND in position of first zero, then statement below is run
+    return False # into line 15 | if solve(board): recives False, else block above is run
+def isValid(board, num, pos): # if move is valid returns True otherwise returns False
     for i in range(9): # 9 = no. of columns
         if board[pos[0]][i] == num and pos[1] != i:
             return False
@@ -42,21 +44,21 @@ def print_board(board):
             else:
                 print(str(board[i][j]) + " ", end="") # number + " " for non-last column numbers
 def emptyCheck(board):
-    for i in range(len(board)):
-        for j in range(len(board[0])):
+    for i in range(9): # 9 = no. of rows
+        for j in range(9): # 9 = no. of columns
             if board[i][j] == 0:
                 return (i, j) # (row, col)-index of first zero found in sudoku
     return None # if no 0s present in sudoku
 board = [
-[0, 6, 9, 0, 0, 0, 0, 7, 8],
-[5, 0, 0, 0, 4, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 7, 6, 0, 5],
-[9, 4, 2, 7, 0, 3, 1, 0, 6], 
-[7, 0, 6, 5, 0, 2, 8, 4, 3],
-[0, 0, 0, 1, 0, 4, 0, 9, 0],  
-[0, 0, 0, 0, 0, 6, 0, 8, 0],
-[6, 0, 1, 0, 3, 9, 0, 0, 0],
-[0, 5, 4, 0, 7, 0, 3, 0, 0] 
+[8, 9, 4, 0, 0, 0, 0, 5, 1],
+[0, 0, 7, 0, 0, 3, 0, 6, 9],
+[0, 6, 0, 5, 0, 4, 0, 0, 0],
+[0, 3, 8, 4, 5, 1, 0, 0, 0], 
+[2, 0, 0, 0, 0, 6, 8, 0, 5],
+[6, 0, 0, 0, 0, 2, 7, 0, 0],  
+[3, 8, 0, 1, 7, 5, 0, 0, 0],
+[4, 0, 0, 3, 6, 9, 1, 0, 8],
+[0, 1, 0, 0, 0, 0, 5, 7, 0] 
 ]
 # Uncomment below code to input sudoku from user:
 #
