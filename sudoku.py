@@ -26,22 +26,22 @@ def isValid(board, num, pos):
                 return False
     return True
 def print_board(board):
-    for i in range(len(board)):
+    for i in range(9): # 9 = no. of rows
         if i % 3 == 0 and i != 0:
-            print("------+-------+------")
-        for j in range(len(board[0])):
+            print("------+-------+------") # horizontal line + "\n" before 4th & 7th row
+        for j in range(9): # 9 = no. of columns
             if j % 3 == 0 and j != 0:
-                print("| ", end="")
+                print("| ", end="") # "|" + " " before 4th & 7th column
             if j == 8:
-                print(board[i][j])
+                print(board[i][j]) # number + "/n" for last column numbers
             else:
-                print(str(board[i][j]) + " ", end="")
+                print(str(board[i][j]) + " ", end="") # number + " " for non-last column numbers
 def emptyCheck(board):
     for i in range(len(board)):
         for j in range(len(board[0])):
             if board[i][j] == 0:
-                return (i, j)
-    return None
+                return (i, j) # (row, col)-index of first zero found in sudoku
+    return None # if no 0s present in sudoku
 board = [
 [0, 8, 0, 0, 0, 6, 2, 0, 0],
 [5, 0, 0, 8, 7, 0, 3, 0, 0],
