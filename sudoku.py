@@ -1,9 +1,9 @@
 def solve(board):
-    find = emptyCheck(board)
-    if not find:
+    found0 = emptyCheck(board)
+    if not found0:
         return True
     else:
-        row, col = find
+        row, col = found0 # (row, col)-index of first zero found in sudoku
     for i in range(1, 10):
         if isValid(board, i, (row, col)):
             board[row][col] = i
@@ -12,10 +12,10 @@ def solve(board):
             board[row][col] = 0
     return False
 def isValid(board, num, pos):
-    for i in range(len(board[0])):
+    for i in range(9): # 9 = no. of columns
         if board[pos[0]][i] == num and pos[1] != i:
             return False
-    for i in range(len(board)):
+    for i in range(9): # 9 = no. of rows
         if board[i][pos[1]] == num and pos[0] != i:
             return False
     box_x = pos[1] // 3
