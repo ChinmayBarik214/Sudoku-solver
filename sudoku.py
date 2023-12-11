@@ -13,9 +13,9 @@ def solve(board):
         if isValid(board, i, (row, col)):
             board[row][col] = i # Try 1/2/…/9 and replace first zero found on board with the first number found from 1-9 which is valid in the zero’s position
             if solve(board): # Run solve function again with a new board created by inserting a number to the previous board
-                return # exits the function when solve(board) returns True, i.e., the sudoku is solved (base case reached)
+                return True # TRUE IS IMPORTANT HERE YEEEEEET, otherwise it doesn’t solve the sudoku
             else:
-                board[row][col] = 0 # replace the first zero with zero?
+                board[row][col] = 0 # replace the first zero with zero? (Maybe found0 is still the same somehow)
     # NO VALID MOVES FOUND in position of first zero, then statement below is run
     return False # into line 15 | if solve(board): recives False, else block above is run
 def isValid(board, num, pos): # if move is valid returns True otherwise returns False
