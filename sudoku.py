@@ -25,10 +25,10 @@ def isValid(board, num, pos): # if move is valid returns True otherwise returns 
     for i in range(9): # 9 = no. of rows
         if board[i][pos[1]] == num:
             return False
-    box_x = pos[1] // 3
-    box_y = pos[0] // 3
-    for i in range(box_y * 3, box_y * 3 + 3):
-        for j in range(box_x * 3, box_x * 3 + 3):
+    box_x = (pos[0] // 3) * 3
+    box_y = (pos[1] // 3) * 3
+    for i in range(box_x, box_x + 3):
+        for j in range(box_y, box_y + 3):
             if board[i][j] == num:
                 return False
     return True
