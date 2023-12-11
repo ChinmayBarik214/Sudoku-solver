@@ -1,15 +1,20 @@
 def solve(board):
+    # Uncomment below code to see board after each recursion
+    #
+    # print("\n")
+    # print_board(board)
+    # print("\n")
     found0 = emptyCheck(board)
     if not found0:
-        return True
+        return True # indicates that solution has been found (base case of recursion)
     else:
         row, col = found0 # (row, col)-index of first zero found in sudoku
     for i in range(1, 10):
         if isValid(board, i, (row, col)):
-            board[row][col] = i
+            board[row][col] = i # Try 1/2/…/9 and replace first zero found on board with the first number which is valid there
             if solve(board):
                 return True
-            board[row][col] = 0
+            board[row][col] = 0 # Reset the last number we added to 0 and try a different number there
     return False
 def isValid(board, num, pos):
     for i in range(9): # 9 = no. of columns
@@ -43,18 +48,18 @@ def emptyCheck(board):
                 return (i, j) # (row, col)-index of first zero found in sudoku
     return None # if no 0s present in sudoku
 board = [
-[0, 8, 0, 0, 0, 6, 2, 0, 0],
-[5, 0, 0, 8, 7, 0, 3, 0, 0],
-[0, 0, 0, 0, 0, 4, 0, 7, 0],
-[0, 4, 0, 2, 1, 0, 0, 3, 0], 
-[0, 0, 9, 0, 0, 0, 5, 0, 0],
-[0, 0, 0, 0, 0, 7, 0, 0, 0],  
-[0, 0, 0, 6, 0, 0, 0, 0, 0],
-[0, 2, 0, 3, 8, 0, 0, 1, 0],
-[4, 0, 0, 0, 0, 0, 0, 0, 2] 
-] 
+[0, 6, 9, 0, 0, 0, 0, 7, 8],
+[5, 0, 0, 0, 4, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 7, 6, 0, 5],
+[9, 4, 2, 7, 0, 3, 1, 0, 6], 
+[7, 0, 6, 5, 0, 2, 8, 4, 3],
+[0, 0, 0, 1, 0, 4, 0, 9, 0],  
+[0, 0, 0, 0, 0, 6, 0, 8, 0],
+[6, 0, 1, 0, 3, 9, 0, 0, 0],
+[0, 5, 4, 0, 7, 0, 3, 0, 0] 
+]
 # Uncomment below code to input sudoku from user:
-
+#
 # board = []
 # for row_no in range(1, 10):
 #     row = eval(input(f"Enter row no. {row_no} of Sudoku:"))
