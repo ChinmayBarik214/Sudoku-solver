@@ -13,16 +13,16 @@ def solve(board):
     return False
 def isValid(board, num, pos):
     for i in range(9): # 9 = no. of columns
-        if board[pos[0]][i] == num and pos[1] != i: # check every column in the row in which the first zero has been found except 1st/2nd/3rd/.../9th column for num to be entered
-            return False # if num is already there move is invalid
+        if board[pos[0]][i] == num and pos[1] != i:
+            return False
     for i in range(9): # 9 = no. of rows
-        if board[i][pos[1]] == num and pos[0] != i: # check every row in the column in which the first zero has been found except 1st/2nd/3rd/.../9th column for num to be entered
-            return False # if num is already there move is invalid
+        if board[i][pos[1]] == num and pos[0] != i:
+            return False
     box_x = pos[1] // 3
     box_y = pos[0] // 3
-    for i in range(box_y*3, box_y*3 + 3):
-        for j in range(box_x * 3, box_x*3 + 3):
-            if board[i][j] == num and (i,j) != pos:
+    for i in range(box_y * 3, box_y * 3 + 3):
+        for j in range(box_x * 3, box_x * 3 + 3):
+            if board[i][j] == num and (i, j) != pos:
                 return False
     return True
 def print_board(board):
