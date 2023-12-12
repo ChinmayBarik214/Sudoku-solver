@@ -77,7 +77,7 @@ while True:
     elif choice == 2:
         board = []
         for row_no in range(1, 10):
-            row = eval(input(f"Enter row no. {row_no} of Sudoku: "))
+            row = eval("[" + input(f"Enter row no. {row_no} of Sudoku: ") + "]")
             board.append(row)
         runProgram()
     elif choice == 3:
