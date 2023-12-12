@@ -83,4 +83,4 @@ while True:
     elif choice == 3:
         break
     else:
-        print("Invalid input please enter 1, 2 or 3")
+        print("Error: Invalid input please enter 1, 2 or 3")
