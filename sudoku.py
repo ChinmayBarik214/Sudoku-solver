@@ -60,14 +60,27 @@ board = [
 [6, 0, 1, 0, 3, 9, 0, 0, 0],
 [0, 5, 4, 0, 7, 0, 3, 0, 0]
 ]
-# Uncomment below code to input sudoku from user:
-#
-# board = []
-# for row_no in range(1, 10):
-#     row = eval(input(f"Enter row no. {row_no} of Sudoku:"))
-#     board.append(row)
-print("\nSudoku Entered:\n")
-print_board(board)
-solve(board)
-print("\nSolution:\n")
-print_board(board)
+def runProgram():
+    print("\nSudoku Entered:\n")
+    print_board(board)
+    solve(board)
+    print("\nSolution:\n")
+    print_board(board)
+while True:
+    print("\n# Menu")
+    print("1. Solve default sudoku")
+    print("2. Solve user-entered sudoku")
+    print("3. Exit")
+    choice = int(input("Select next action (1/2/3): "))
+    if choice == 1:
+        runProgram()
+    elif choice == 2:
+        board = []
+        for row_no in range(1, 10):
+            row = eval(input(f"Enter row no. {row_no} of Sudoku: "))
+            board.append(row)
+        runProgram()
+    elif choice == 3:
+        break
+    else:
+        print("Invalid input please enter 1, 2 or 3")
