@@ -23,19 +23,50 @@ Go to its project directory
   cd Sudoku-solver
 ```
 
-Run sudoku.py
+Ensure [python](https://www.python.org/downloads/) is installed and run sudoku.py
 
 ```bash
   python sudoku.py
 ```
 ## Usage/Examples
 
-```javascript
-import Component from "my-project";
+1. To solve the default grid press 1 and enter
+```
+# Menu
+1. Solve default sudoku
+2. Solve user-entered sudoku
+3. Exit
+Select next action (1/2/3): 1
 
-function App() {
-  return <Component />;
-}
+Sudoku Entered:
+
+0 6 9 | 0 0 0 | 0 7 8
+5 0 0 | 0 4 0 | 0 0 0
+0 0 0 | 0 0 7 | 6 0 5
+------+-------+------
+9 4 2 | 7 0 3 | 1 0 6
+7 0 6 | 5 0 2 | 8 4 3
+0 0 0 | 1 0 4 | 0 9 0
+------+-------+------
+0 0 0 | 0 0 6 | 0 8 0
+6 0 1 | 0 3 9 | 0 0 0
+0 5 4 | 0 7 0 | 3 0 0
+
+Solution:
+
+1 6 9 | 3 2 5 | 4 7 8
+5 3 7 | 6 4 8 | 9 1 2
+4 2 8 | 9 1 7 | 6 3 5
+------+-------+------
+9 4 2 | 7 8 3 | 1 5 6
+7 1 6 | 5 9 2 | 8 4 3
+3 8 5 | 1 6 4 | 2 9 7
+------+-------+------
+2 9 3 | 4 5 6 | 7 8 1
+6 7 1 | 8 3 9 | 5 2 4
+8 5 4 | 2 7 1 | 3 6 9
+
+# Menu
 ```
 
 ## How it works <!-- Change this text -->

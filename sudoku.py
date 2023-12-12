@@ -81,6 +81,6 @@ while True:
             board.append(row)
         runProgram()
     elif choice == 3:
-        break
+        quit("Thank you for using Sudoku solver. Have a great day!")
     else:
         print("Error: Invalid input please enter 1, 2 or 3")
