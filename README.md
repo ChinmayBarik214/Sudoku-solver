@@ -133,7 +133,14 @@ Thank you for using Sudoku solver. Have a great day!
 
 To solve this puzzle at any difficulty level the Sudoku Solver makes use of a backtracking algorithm. At a macro level this can be explained as follows:
 
-1. Find the first 0 (empty space) on the board going row-by-row and return its position.
+1. Find the first `0` (empty space) on the board going row-by-row and return its position.
 2. The first integer out of 1-9 which is a valid move in this positoin i.e., is unique within its row, column, and box/subgrid is placed there.
+   * After the number is inserted the loop which was providing values 1-9 is not terminated.
+   * This is because if it is later found that the value inserted here was not the one in the final solution (even though it was a valid move at this point) then the loop will continue execution (See step 4).
 3. Steps 1 & 2 are now repeated on the new grid thus obtained.
-4. Step 3 is repeated
+   * The 1st `0` found on the new grid will be the 2nd `0` on the initial grid
+   * The 1st `0` found on the grid created after that will be the 3rd `0` on the initial grid and so on this process will repeat until a position is found where no number 1-9 is a valid move.
+4. In this case the previous move will continue running step 2 but it will continue from the last number it inserted instead of 1-9.
+   * In simple words, if the numbers 2, 3, 7 all were valid moves, Sudoku Solver will first try 2, but if later on it is found that 2 is resulting in the formation of an unsolvable sudoku, then it will try 3 instead, if the same issue occurs for 3 it will try again with 7.
+   * Is the issue keeps occuring for every valid move then we declare the sudoku unsolvable.
+   * Otherwise we continue execution until there are no longer any 0s found on the board, i.e., the sudoku is solved.
