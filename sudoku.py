@@ -69,6 +69,23 @@ def runProgram():
         print("The Sudoku entered is unsolvable!")
     else:
         print_board(board)
+def isInput_valid():
+    try:
+        givenInput = eval("[" + input(f"Enter row no. {row_no} of Sudoku: ") + "]")
+        for num in givenInput:
+            if num > 9 or num < 0:
+                print(f"Error: Invalid input please enter integers between 0-9 (inclusive)")
+                print("Example input: 0, 6, 9, 0, 0, 0, 0, 7, 8")
+                return isInput_valid()
+        if (len(givenInput) != 9):
+            print(f"Error: Invalid input please enter nine values separated by a comma, only {len(givenInput)} given")
+            print("Example input: 0, 6, 9, 0, 0, 0, 0, 7, 8")
+            return isInput_valid()
+    except:
+        print("Error: Invalid input please enter integers between 0-9 (inclusive)")
+        print("Example input: 0, 6, 9, 0, 0, 0, 0, 7, 8")
+        return isInput_valid()
+    return givenInput
 while True:
     print("\n# Menu")
     print("1. Solve default sudoku")
@@ -80,12 +97,7 @@ while True:
     elif choice == 2:
         board = []
         for row_no in range(1, 10):
-            try:
-                row = eval("[" + input(f"Enter row no. {row_no} of Sudoku: ") + "]")
-            except:
-                print("Error: Invalid input please enter each row in CSV format")
-                print("Example input: 0, 6, 9, 0, 0, 0, 0, 7, 8")
-                row = eval("[" + input(f"Enter row no. {row_no} of Sudoku: ") + "]")
+            row = isInput_valid()
             board.append(row)
         runProgram()
     elif choice == 3:
