@@ -146,7 +146,7 @@ To solve this puzzle at any difficulty level the Sudoku Solver makes use of a ba
    - Otherwise we continue execution until there are no longer any 0s found on the board, i.e., the sudoku is solved.
 
 ### Visual Helper
-1. You may uncomment [lines 4-6 of sudoku.py](https://github.com/ChinmayBarik214/Sudoku-solver/blob/50316bd2ec8a40c45b63024d32dcfa9f89172f13/sudoku.py#L4-L6) on your system and run the program to see the sudoku after each recursive call of `solve(board)`
+1. You may uncomment [lines 4-6](https://github.com/ChinmayBarik214/Sudoku-solver/blob/50316bd2ec8a40c45b63024d32dcfa9f89172f13/sudoku.py#L4-L6) in your sudoku.py file and run the program to see the sudoku after each recursive call of the `solve` function.
 2. Doing so for the default sudoku will lead to the execution of the steps explained through the following visual:
 
-![Visual Helper](![alt text](https://github.com/ChinmayBarik214/Sudoku-solver/blob/main/Visual%20helper.png))
+![Visual helper](visual-helper.png)
