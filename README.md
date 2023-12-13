@@ -151,7 +151,3 @@ To solve this puzzle at any difficulty level the Sudoku Solver makes use of a ba
 2. Doing so for the default sudoku will lead to the execution of the steps explained through the following visual:
 
 ![Visual helper](https://imgur.com/zZlD7mx.png)
-
-## Like this project?
-
-If you are feeling generous, buy me a coffee! – https://www.buymeacoffee.com/chinmaybarik
