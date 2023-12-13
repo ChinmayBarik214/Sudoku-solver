@@ -149,4 +149,4 @@ To solve this puzzle at any difficulty level the Sudoku Solver makes use of a ba
 1. You may uncomment [lines 4-6](https://github.com/ChinmayBarik214/Sudoku-solver/blob/50316bd2ec8a40c45b63024d32dcfa9f89172f13/sudoku.py#L4-L6) in your sudoku.py file and run the program to see the sudoku after each recursive call of the `solve` function.
 2. Doing so for the default sudoku will lead to the execution of the steps explained through the following visual:
 
-![Visual helper](./visual-helper.png)
+![Visual helper](https://imgur.com/zZlD7mx.png)
