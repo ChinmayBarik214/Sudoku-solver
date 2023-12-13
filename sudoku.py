@@ -65,7 +65,10 @@ def runProgram():
     print_board(board)
     solve(board)
     print("\nSolution:\n")
-    print_board(board)
+    if emptyCheck(board):
+        print("The Sudoku entered is unsolvable!")
+    else:
+        print_board(board)
 while True:
     print("\n# Menu")
     print("1. Solve default sudoku")
@@ -77,7 +80,12 @@ while True:
     elif choice == 2:
         board = []
         for row_no in range(1, 10):
-            row = eval("[" + input(f"Enter row no. {row_no} of Sudoku: ") + "]")
+            try:
+                row = eval("[" + input(f"Enter row no. {row_no} of Sudoku: ") + "]")
+            except:
+                print("Error: Invalid input please enter each row in CSV format")
+                print("Example input: 0, 6, 9, 0, 0, 0, 0, 7, 8")
+                row = eval("[" + input(f"Enter row no. {row_no} of Sudoku: ") + "]")
             board.append(row)
         runProgram()
     elif choice == 3:

@@ -28,18 +28,21 @@ Ensure [python](https://www.python.org/downloads/) is installed and run sudoku.p
 ```bash
   python sudoku.py
 ```
-## Usage/Examples
+
+## Usage
 
 1. To solve the default sudoku press 1 followed by enter
 2. To solve a user-entered sudoku press 2 followed by enter
-    * You will then be prompted to enter the sudoku row-by-row
-    * Enter each row in [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) format, i.e., enter the first value followed by a comma then the second value followed by a comma and so on
-    * Example input for 1st row: `0, 6, 9, 0, 0, 0, 0, 7, 8`
-    * After you have finished typing a row press enter to start typing the next row and so on until all nine rows have been entered
-    * Now your sudoku will be solved in under five seconds and its solution will be displayed!
+   - You will then be prompted to enter the sudoku row-by-row
+   - Enter each row in [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) format, i.e., enter the first value followed by a comma then the second value followed by a comma and so on
+   - Example input for 1st row: `0, 6, 9, 0, 0, 0, 0, 7, 8`
+   - After you have finished typing a row press enter to start typing the next row and so on until all nine rows have been entered
+   - Now your sudoku will be solved in under five seconds and its solution will be displayed!
+   - In case you have entered an unsolvable sudoku the following message will be displayed `The Sudoku entered is unsolvable!`
 3. To exit the application press 3 followed by enter
 
-### Sample Run of Program
+## Demo
+
 ```
 # Menu
 1. Solve default sudoku
@@ -126,7 +129,14 @@ Select next action (1/2/3): 3
 Thank you for using Sudoku solver. Have a great day!
 ```
 
+## Algorithm
 
-## How it works <!-- Change this text -->
+To solve even the most challenging of these puzzles, our Sudoku solver only needs to follow three strategies:
+
+1. If a square has only one candidate, place that value there.
+2. If a candidate is unique within a row, box or column, place that value there (hidden singles).
+3. If neither 1 or 2 is true in the entire grid, make a guess. Backtrack if the Sudoku becomes unsolvable.
+
+<!-- The code also implements a check to determine if the Sudoku is solvable. This is run at the start of each solving task. --> <!-- Maybe add this? -->
 
 <!-- Enter stuff here -->
