@@ -131,12 +131,9 @@ Thank you for using Sudoku solver. Have a great day!
 
 ## Algorithm
 
-To solve even the most challenging of these puzzles, our Sudoku solver only needs to follow three strategies:
+To solve this puzzle at any difficulty level the Sudoku Solver makes use of a backtracking algorithm. At a macro level this can be explained as follows:
 
-1. If a square has only one candidate, place that value there.
-2. If a candidate is unique within a row, box or column, place that value there (hidden singles).
-3. If neither 1 or 2 is true in the entire grid, make a guess. Backtrack if the Sudoku becomes unsolvable.
-
-<!-- The code also implements a check to determine if the Sudoku is solvable. This is run at the start of each solving task. --> <!-- Maybe add this? -->
-
-<!-- Enter stuff here -->
+1. Find the first 0 (empty space) on the board going row-by-row and return its position.
+2. The first integer out of 1-9 which is a valid move in this positoin i.e., is unique within its row, column, and box/subgrid is placed there.
+3. Steps 1 & 2 are now repeated on the new grid thus obtained.
+4. Step 3 is repeated
