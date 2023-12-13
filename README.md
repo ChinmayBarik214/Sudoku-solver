@@ -138,7 +138,7 @@ To solve this puzzle at any difficulty level the Sudoku Solver makes use of a ba
    - After the number is inserted the loop which was providing values 1-9 is not terminated.
    - This is because if it is later found that the value inserted here was not the one in the final solution (even though it was a valid move at this point) then the loop will continue execution (See step 4).
 3. Steps 1 & 2 are now repeated on the new grid thus obtained.
-   - The 1st `0` found on the new grid will be the 2nd `0` on the initial grid
+   - The 1st `0` found on the new grid will be the 2nd `0` on the initial grid.
    - The 1st `0` found on the grid created after that will be the 3rd `0` on the initial grid and so on this process will repeat until a position is found where no number 1-9 is a valid move.
 4. In this case the previous move will continue running step 2 but it will continue from the last number it inserted instead of 1-9.
    - In simple words, if the numbers 2, 3, 7 all were valid moves, Sudoku Solver will first try 2, but if later on it is found that 2 is resulting in the formation of an unsolvable sudoku, then it will try 3 instead, if the same issue occurs for 3 it will try again with 7.
